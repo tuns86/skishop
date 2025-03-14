@@ -4,7 +4,7 @@ namespace Service.Interfaces
 {
     public interface ISpetificationService
     {
-        ProductSpecification ProductSpecification(string? brand, string? type, string? sort);
+        ProductSpecification ProductSpecification(ProductSpecParams specParams);
         BrandListSpecification BrandListSpecification();
         TypeListSpecification TypeListSpecification();
     }

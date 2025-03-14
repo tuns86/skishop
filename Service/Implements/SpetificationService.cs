@@ -12,9 +12,9 @@ namespace Service.Implements
             return new BrandListSpecification();
         }
 
-        public ProductSpecification ProductSpecification(string? brand, string? type, string? sort)
+        public ProductSpecification ProductSpecification(ProductSpecParams specParams)
         {
-            return new ProductSpecification(brand, type, sort);
+            return new ProductSpecification(specParams);
         }
 
         public TypeListSpecification TypeListSpecification()

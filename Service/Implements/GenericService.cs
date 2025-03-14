@@ -19,6 +19,11 @@ namespace Service.Implements
             _repo.Add(entity);
         }
 
+        public async Task<int> CountAsync(ISpecification<T> spec)
+        {
+            return await _repo.CountAsync(spec);
+        }
+
         public bool Exists(int id)
         {
             return _repo.Exists(id);
