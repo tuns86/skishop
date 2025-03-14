@@ -9,7 +9,8 @@
       "Api/1.0.0": {
         "dependencies": {
           "Infrastructure": "1.0.0",
-          "Microsoft.EntityFrameworkCore.Design": "9.0.3"
+          "Microsoft.EntityFrameworkCore.Design": "9.0.3",
+          "Service": "1.0.0"
         },
         "runtime": {
           "Api.dll": {}
@@ -1051,6 +1052,17 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "Service/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "runtime": {
+          "Service.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1612,6 +1624,11 @@
       "sha512": ""
     },
     "Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

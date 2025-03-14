@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\skishop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F2B64EE1-9DBF-4909-84D5-A756E9A5DA62}|Core\\Core.csproj|c:\\users\\admin\\desktop\\skishop\\core\\irepositories\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2B64EE1-9DBF-4909-84D5-A756E9A5DA62}|Core\\Core.csproj|solutionrelative:core\\irepositories\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD00C590-0C58-47FA-84B1-44522F253E6A}|Infrastructure\\Infrastructure.csproj|c:\\users\\admin\\desktop\\skishop\\infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD00C590-0C58-47FA-84B1-44522F253E6A}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3F5B1C14-5652-4CBE-BA23-CFCB61DE3541}|Api\\Api.csproj|c:\\users\\admin\\desktop\\skishop\\api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3F5B1C14-5652-4CBE-BA23-CFCB61DE3541}|Api\\Api.csproj|solutionrelative:api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F5B1C14-5652-4CBE-BA23-CFCB61DE3541}|Api\\Api.csproj|c:\\users\\admin\\desktop\\skishop\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F5B1C14-5652-4CBE-BA23-CFCB61DE3541}|Api\\Api.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\admin\\desktop\\skishop\\service\\interfaces\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\interfaces\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F5B1C14-5652-4CBE-BA23-CFCB61DE3541}|Api\\Api.csproj|c:\\users\\admin\\desktop\\skishop\\api\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F5B1C14-5652-4CBE-BA23-CFCB61DE3541}|Api\\Api.csproj|solutionrelative:api\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\admin\\desktop\\skishop\\service\\implements\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\implements\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,39 +70,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\skishop\\Api\\Program.cs",
-              "RelativeDocumentMoniker": "Api\\Program.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\skishop\\Api\\Program.cs",
-              "RelativeToolTip": "Api\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAxAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\skishop\\Service\\Interfaces\\IProductService.cs",
+              "RelativeDocumentMoniker": "Service\\Interfaces\\IProductService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\skishop\\Service\\Interfaces\\IProductService.cs",
+              "RelativeToolTip": "Service\\Interfaces\\IProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T17:37:38.389Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\skishop\\Api\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "Api\\WeatherForecast.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\skishop\\Api\\WeatherForecast.cs",
-              "RelativeToolTip": "Api\\WeatherForecast.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T17:36:13.917Z",
+              "WhenOpened": "2025-03-14T02:34:52.296Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\skishop\\Core\\IRepositories\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "Core\\IRepositories\\IProductRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\skishop\\Core\\IRepositories\\IProductRepository.cs",
+              "RelativeToolTip": "Core\\IRepositories\\IProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T02:34:49.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\skishop\\Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\ProductRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\skishop\\Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAASwDYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T02:26:39.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\skishop\\Service\\Implements\\ProductService.cs",
+              "RelativeDocumentMoniker": "Service\\Implements\\ProductService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\skishop\\Service\\Implements\\ProductService.cs",
+              "RelativeToolTip": "Service\\Implements\\ProductService.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAqwCAAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T02:24:50.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\skishop\\Api\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "Api\\Controllers\\ProductsController.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\skishop\\Api\\Controllers\\ProductsController.cs",
               "RelativeToolTip": "Api\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAuwEkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAIAxwD0AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-13T09:16:47.961Z",
               "EditorCaption": ""
