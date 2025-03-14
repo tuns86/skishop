@@ -8,6 +8,7 @@ namespace Api.WebExtensions
         public static IServiceCollection AddService(this IServiceCollection services)
         {
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
 
             return services;
         }

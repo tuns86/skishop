@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Specifications;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 
@@ -8,24 +9,28 @@ namespace Api.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductService _productService;
+        private readonly IGenericService<Product> _service;
 
-        public ProductsController(IProductService productService)
+        public ProductsController(IGenericService<Product> service)
         {
-            _productService = productService;
+            _service = service;
         }
 
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(string? brand,
         string? type, string? sort)
         {
-            return Ok(await _productService.GetProductsAsync(brand, type, sort));
+            var spec = new ProductSpecification(brand, type, sort);
+
+            var products = await _service.ListAsync(spec);
+
+            return Ok(products);
         }
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _productService.GetProductByIdAsync(id);
+            var product = await _service.GetByIdAsync(id);
 
             if (product == null) return NotFound();
 
@@ -35,9 +40,9 @@ namespace Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct(Product product)
         {
-            _productService.AddProduct(product);
+            _service.Add(product);
 
-            if (await _productService.SaveChangesAsync())
+            if (await _service.SaveAllAsync())
             {
                 return CreatedAtAction("GetProduct", new { id = product.Id }, product);
             }
@@ -51,9 +56,9 @@ namespace Api.Controllers
             if (product.Id != id || !ProductExists(id))
                 return BadRequest("Cannot update this product");
 
-            _productService.UpdateProduct(product);
+            _service.Update(product);
 
-            if (await _productService.SaveChangesAsync())
+            if (await _service.SaveAllAsync())
             {
                 return NoContent();
             }
@@ -64,13 +69,13 @@ namespace Api.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteProduct(int id)
         {
-            var product = await _productService.GetProductByIdAsync(id);
+            var product = await _service.GetByIdAsync(id);
 
             if (product is null) return NotFound();
 
-            _productService.DeleteProduct(product);
+            _service.Remove(product);
 
-            if (await _productService.SaveChangesAsync())
+            if (await _service.SaveAllAsync())
             {
                 return NoContent();
             }
@@ -81,18 +86,22 @@ namespace Api.Controllers
         [HttpGet("brands")]
         public async Task<ActionResult<IReadOnlyList<string>>> GetBrands()
         {
-            return Ok(await _productService.GetBrandsAsync());
+            var spec = new BrandListSpecification();
+
+            return Ok(await _service.ListAsync(spec));
         }
 
         [HttpGet("types")]
         public async Task<ActionResult<IReadOnlyList<string>>> GetTypes()
         {
-            return Ok(await _productService.GetTypesAsync());
+            var spec = new TypeListSpecification();
+
+            return Ok(await _service.ListAsync(spec));
         }
 
         private bool ProductExists(int id)
         {
-            return _productService.ProductExists(id);
+            return _service.Exists(id);
         }
     }
 }
