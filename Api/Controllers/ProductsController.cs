@@ -1,5 +1,4 @@
 ﻿using Core.Entities;
-using Core.Specifications;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 
@@ -9,18 +8,20 @@ namespace Api.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
+        private readonly ISpetificationService _spec;
         private readonly IGenericService<Product> _service;
 
-        public ProductsController(IGenericService<Product> service)
+        public ProductsController(IGenericService<Product> service, ISpetificationService spec)
         {
             _service = service;
+            _spec = spec;
         }
 
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(string? brand,
         string? type, string? sort)
         {
-            var spec = new ProductSpecification(brand, type, sort);
+            var spec = _spec.ProductSpecification(brand, type, sort);
 
             var products = await _service.ListAsync(spec);
 
@@ -86,7 +87,7 @@ namespace Api.Controllers
         [HttpGet("brands")]
         public async Task<ActionResult<IReadOnlyList<string>>> GetBrands()
         {
-            var spec = new BrandListSpecification();
+            var spec = _spec.BrandListSpecification();
 
             return Ok(await _service.ListAsync(spec));
         }
@@ -94,7 +95,7 @@ namespace Api.Controllers
         [HttpGet("types")]
         public async Task<ActionResult<IReadOnlyList<string>>> GetTypes()
         {
-            var spec = new TypeListSpecification();
+            var spec = _spec.TypeListSpecification();
 
             return Ok(await _service.ListAsync(spec));
         }
