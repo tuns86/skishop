@@ -13,34 +13,49 @@ namespace Service.Implements
             _productRepo = productRepo;
         }
 
-        public async Task<IEnumerable<Product>> GetProducts()
+        public void AddProduct(Product product)
         {
-            return await _productRepo.GetProducts();
+            _productRepo.AddProduct(product);
         }
 
-        public async Task<Product?> GetProduct(int id)
+        public void DeleteProduct(Product product)
         {
-            return await _productRepo.GetProduct(id);
+            _productRepo.DeleteProduct(product);
         }
 
-        public async Task<Product> CreateProduct(Product product)
+        public async Task<IReadOnlyList<string>> GetBrandsAsync()
         {
-            return await _productRepo.CreateProduct(product);
+            return await _productRepo.GetBrandsAsync();
         }
 
-        public async Task UpdateProduct(int id, Product product)
+        public async Task<Product?> GetProductByIdAsync(int id)
         {
-            await _productRepo.UpdateProduct(id, product);
+            return await _productRepo.GetProductByIdAsync(id);
         }
 
-        public async Task DeleteProduct(int id)
+        public async Task<IReadOnlyList<Product>> GetProductsAsync(string? brand, string? type, string? sort)
         {
-            await _productRepo.DeleteProduct(id);
+            return await _productRepo.GetProductsAsync(brand, type, sort);
+        }
+
+        public async Task<IReadOnlyList<string>> GetTypesAsync()
+        {
+            return await _productRepo.GetTypesAsync();
         }
 
         public bool ProductExists(int id)
         {
             return _productRepo.ProductExists(id);
+        }
+
+        public async Task<bool> SaveChangesAsync()
+        {
+            return await _productRepo.SaveChangesAsync();
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            _productRepo.UpdateProduct(product);
         }
     }
 }

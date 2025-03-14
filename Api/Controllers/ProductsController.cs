@@ -16,16 +16,16 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(string? brand,
+        string? type, string? sort)
         {
-            var products = await _productService.GetProducts();
-            return Ok(products);
+            return Ok(await _productService.GetProductsAsync(brand, type, sort));
         }
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _productService.GetProduct(id);
+            var product = await _productService.GetProductByIdAsync(id);
 
             if (product == null) return NotFound();
 
@@ -35,32 +35,64 @@ namespace Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct(Product product)
         {
-            await _productService.CreateProduct(product);
+            _productService.AddProduct(product);
 
-            return product;
+            if (await _productService.SaveChangesAsync())
+            {
+                return CreatedAtAction("GetProduct", new { id = product.Id }, product);
+            }
+
+            return BadRequest("Problem creating product");
         }
 
         [HttpPut("{id:int}")]
         public async Task<ActionResult> UpdateProduct(int id, Product product)
         {
-            if (product.Id != id || !_productService.ProductExists(id))
+            if (product.Id != id || !ProductExists(id))
                 return BadRequest("Cannot update this product");
 
-            await _productService.UpdateProduct(id, product);
+            _productService.UpdateProduct(product);
 
-            return NoContent();
+            if (await _productService.SaveChangesAsync())
+            {
+                return NoContent();
+            }
+
+            return BadRequest("Problem updating the product");
         }
 
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteProduct(int id)
         {
-            var product = await _productService.GetProduct(id);
+            var product = await _productService.GetProductByIdAsync(id);
 
             if (product is null) return NotFound();
 
-            await _productService.DeleteProduct(id);
+            _productService.DeleteProduct(product);
 
-            return NoContent();
+            if (await _productService.SaveChangesAsync())
+            {
+                return NoContent();
+            }
+
+            return BadRequest("Problem deleting the product");
+        }
+
+        [HttpGet("brands")]
+        public async Task<ActionResult<IReadOnlyList<string>>> GetBrands()
+        {
+            return Ok(await _productService.GetBrandsAsync());
+        }
+
+        [HttpGet("types")]
+        public async Task<ActionResult<IReadOnlyList<string>>> GetTypes()
+        {
+            return Ok(await _productService.GetTypesAsync());
+        }
+
+        private bool ProductExists(int id)
+        {
+            return _productService.ProductExists(id);
         }
     }
 }
