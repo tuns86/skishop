@@ -1,15 +1,6 @@
-import './assets/main.css';
-import './assets/tailwind.css';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { appConfig } from './app/app.config';
+import { AppComponent } from './app/app.component';
 
-import { createPinia } from 'pinia';
-import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router/router';
-
-const app = createApp(App)
-
-app.use(createPinia())
-app.use(router)
-// app.use(vuetify)
-
-app.mount('#app')
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));
